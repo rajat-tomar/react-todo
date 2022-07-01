@@ -4,11 +4,32 @@ import {Todos} from "./components/Todos";
 import {Footer} from "./components/Footer";
 
 function App() {
+    const onDelete = (todo) => {
+        console.log("I am onDelete of todo: ", todo);
+    }
+
+    let todos = [
+        {
+            sno: 1,
+            title: "Go to the market",
+            desc: "You need to go to the market today",
+        },
+        {
+            sno: 2,
+            title: "Go to the ghat",
+            desc: "You need to go to the ghat today",
+        },
+        {
+            sno: 3,
+            title: "Go to the school",
+            desc: "You need to go to the school today",
+        }
+    ];
     return (
         <>
             <Header title="My Todo List" searchBar={false}/>
-            <Todos />
-            <Footer />
+            <Todos todos={todos} onDelete={onDelete}/>
+            <Footer/>
         </>
     );
 }
