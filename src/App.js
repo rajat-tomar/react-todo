@@ -1,10 +1,10 @@
 import './App.css';
 import Header from "./components/Header";
-import {Todos} from "./components/Todos";
 import {Footer} from "./components/Footer";
-import {AddTodo} from "./components/AddTodo";
 import {useEffect, useState} from 'react';
-import {BrowserRouter as Router} from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes,} from "react-router-dom";
+import {AddTodo} from "./components/AddTodo";
+import {Todos} from "./components/Todos";
 
 function App() {
     let initTodo;
@@ -48,8 +48,14 @@ function App() {
         <>
             <Router>
                 <Header title="My Todo List" searchBar={false}/>
-                <AddTodo addTodo={addTodo}/>
-                <Todos todos={todos} onDelete={onDelete}/>
+                <Routes>
+                    <Route path="/" element={
+                        <>
+                            <AddTodo addTodo={addTodo}/>
+                            <Todos todos={todos} onDelete={onDelete}/>
+                        </>
+                    }/>
+                </Routes>
                 <Footer/>
             </Router>
         </>
