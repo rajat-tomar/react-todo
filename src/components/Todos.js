@@ -17,7 +17,8 @@ export const Todos = (props) => {
                             <hr/>
                         </>
                     )
-                })}
+                })
+            }
         </div>
     )
 }
