@@ -5,6 +5,7 @@ import {useEffect, useState} from 'react';
 import {BrowserRouter as Router, Route, Routes,} from "react-router-dom";
 import {AddTodo} from "./components/AddTodo";
 import {Todos} from "./components/Todos";
+import {About} from "./components/About";
 
 function App() {
     let initTodo;
@@ -55,6 +56,7 @@ function App() {
                             <Todos todos={todos} onDelete={onDelete}/>
                         </>
                     }/>
+                    <Route path="/about" element={<About/>}/>
                 </Routes>
                 <Footer/>
             </Router>
