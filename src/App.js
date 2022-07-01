@@ -4,10 +4,11 @@ import {Todos} from "./components/Todos";
 import {Footer} from "./components/Footer";
 import {AddTodo} from "./components/AddTodo";
 import {useEffect, useState} from 'react';
+import {BrowserRouter as Router} from "react-router-dom";
 
 function App() {
     let initTodo;
-    if(localStorage.getItem("todos")===null) {
+    if (localStorage.getItem("todos") === null) {
         initTodo = []
     } else {
         initTodo = JSON.parse(localStorage.getItem("todos"))
@@ -35,7 +36,7 @@ function App() {
             desc: desc
         }
         setTodos([...todos, myTodo])
-        console.log(myTodo );
+        console.log(myTodo);
     }
 
     const [todos, setTodos] = useState(initTodo);
@@ -45,10 +46,12 @@ function App() {
 
     return (
         <>
-            <Header title="My Todo List" searchBar={false}/>
-            <AddTodo addTodo={addTodo}/>
-            <Todos todos={todos} onDelete={onDelete}/>
-            <Footer/>
+            <Router>
+                <Header title="My Todo List" searchBar={false}/>
+                <AddTodo addTodo={addTodo}/>
+                <Todos todos={todos} onDelete={onDelete}/>
+                <Footer/>
+            </Router>
         </>
     );
 }
